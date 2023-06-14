@@ -1,6 +1,7 @@
 use serde::Deserialize;
 
-#[derive(Debug, Deserialize, PartialEq)]
+
+#[derive(Debug, Deserialize, PartialEq, Default)]
 pub struct Rule {
     pub name: String,
     pub description: String,
@@ -9,9 +10,14 @@ pub struct Rule {
     pub rule: String,
     pub exception: Option<Vec<String>>,
     pub validation: Option<String>,
+    #[serde(default = "default_keyword_max_distance")]
     pub keyword_max_distance: u64,
     pub tags: Option<Vec<String>>,
     pub example: Option<Vec<String>>
+}
+
+fn default_keyword_max_distance() -> u64 {
+    50_u64
 }
 
 
