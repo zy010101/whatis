@@ -1,0 +1,4 @@
+rule:
+  enable_keywords: true
+  keyword_max_distance_default: 50
+  
